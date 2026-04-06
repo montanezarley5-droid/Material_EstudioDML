@@ -1,7 +1,7 @@
-create database Trazabilidad_SGVA;
-use Trazabilidad_SGVA;
+create database Trazabilidad_SGVA; -- CREAREMOS LA BASE DE DATOS 
+use Trazabilidad_SGVA; --SE LE ESPECIFICA QUE SE VA A USAR LA BASE DE DATOS CREADA
 
-create table Trazabilidad (
+create table Trazabilidad ( -- SE CREA LA TABLA TRAZABILIDAD
 Id_Trazabilidad int not null primary key auto_increment,
 nombre_empresa varchar(45) not null,
 encargado varchar(45) not null,
@@ -18,3 +18,42 @@ Id_Empresa int not null primary key auto_increment,
 codigo_empresa varchar(45) not null,
 nombre_empresa varchar(45) not null
 );
+
+alter table Empresa
+add primary key (codigo_empresa);
+
+alter table Empresa
+drop column Id_Empresa;
+
+alter table Trazabilidad
+rename column nombre_empresa to cod_empresa;
+
+insert into Empresa
+values ('COD1','SENA');
+insert into Empresa
+values ('COD2','Biotronitech colombia');
+insert into Empresa
+values ('COD3','SIEMENS');
+insert into Empresa
+values ('COD4','Trycore');
+insert into Empresa
+values ('COD5','data tools');
+
+insert into Empresa (Codigo_empresa , nombre_empresa)
+values ('COD6','SENA');
+insert into Empresa (Codigo_empresa , nombre_empresa)
+values ('COD7','Biotronitech colombia');
+insert into Empresa (Codigo_empresa , nombre_empresa)
+values ('COD8','SIEMENS');
+insert into Empresa (Codigo_empresa , nombre_empresa)
+values ('COD9','Trycore');
+insert into Empresa (Codigo_empresa , nombre_empresa)
+values ('COD10','data tools');
+
+select * from Empresa;
+
+describe Empresa;
+
+
+
+
